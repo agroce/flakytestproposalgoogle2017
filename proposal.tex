@@ -1,19 +1,39 @@
-\documentclass{article}
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{url}
 
 \title{Understanding and Mitigating Flaky Tests}
-\author{Alex Groce\\Northern Arizona University}
+\author{Alex Groce (agroce@gmail.com)\\Northern Arizona University}
 
 \begin{document}
 \maketitle
 
-\section{Abstract}
+%\section{Overview}
+
+\noindent {\bf Google Contacts:} James H. Andrews, Chaoqiang Zhang \\
+\noindent {\bf Google Sponsor:} John Micco
 \section{Proposal}
 
-The most extensive previous study of flaky tests was that of Luo et. al \cite{luo2014empirical}.
+\subsection{Abstract}
+
+\subsection{Problem Statement}
+
+The most extensive previous study of flaky tests was that of Luo et. al \cite{luo2014empirical}.  Listfield analyzed actual Google tests \cite{listfieldtestanalysis}. Palomba and Zaidman \cite{palomba2017does} investigated the relationship between code smells and flakiness.
+
+\subsection{Prior Work}
+
+\subsection{Research Plan}
+
+
 
 \bibliographystyle{plain}
 \bibliography{proposal}
 
 \section{Data Policy}
+
+All analysis data from this project based on open source projects will be made public, along with analysis scripts, via GitHub or similar open source hosting solution.  Tools for mitigation will also be publically hosted.  Depending on size of artifacts, only pointers to the actual repository artifact snapshots analyzed may be posted, rather than their full contents (since we expect to potentially analyze very large amounts of source code that is already accessible online).
+
 \section{Budget}
+
 \end{document}
