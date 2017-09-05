@@ -2,9 +2,13 @@
 
 \usepackage[margin=1in]{geometry}
 \usepackage{url}
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}
 
 \title{Understanding and Mitigating Flaky Tests}
 \author{Alex Groce (agroce@gmail.com)\\Northern Arizona University}
+
+\date{}
 
 \begin{document}
 \maketitle
@@ -19,11 +23,21 @@
 
 \subsection{Problem Statement}
 
-The most extensive previous study of flaky tests was that of Luo et. al \cite{luo2014empirical}.  Listfield analyzed actual Google tests \cite{listfieldtestanalysis}. Palomba and Zaidman \cite{palomba2017does} investigated the relationship between code smells and flakiness.
+In order to help ensure that they are reliable and secure, complex modern software systems usually include a large set of \emph{regression tests}.  A regression test suite is a (usually large) set of tests that is run against a software system every time is modified, to ensure that the modification has not broken the system in some way.
+\emph{Flaky tests} \cite{miccoflaky} are software regression tests that fail in an intermittent, unreliable fashion.  The essence of a flaky test is that, for the same code under test (CUT), it sometimes fails and sometimes passes:  the outcome of the test is not a deterministic property of the code that it tests.  This produces three serious problems:  first, a flaky test often wastes developer time by forcing the investigation of code that is not incorrect.  Second, flaky tests (for that reason) are often ignored, and therefore serious software faults may be missed.  Finally, to mitigate these problems, flaky tests are often run multiple times, wasting valuable computing resources and delaying acceptance of code changes.  A canary in a coal mine is of little use if canaries frequently become ill for reasons unrelated to the presence of toxic gases.  Mmining may stop for no good reason, or miners may learn to ignore the canary, leading to tragedy.
+
+In practice, the problem of flaky tests is not limited to regression testing.  In our own work, we have encountered flaky tests produced by automated test generation systems, including production compiler fuzzers.  The underlying problems are the same:  flaky tests make software quality assurance more difficult and impose a large burden, in both computational and human terms.  Better understanding of flaky tests, in terms of both underlying causes and statistical profiles of how they differ from other tests, is critical to direct present and future research on flaky tests.  Novel approaches to mitigation for flaky tests, based on characteristics of flaky tests, rather than on the causes unique to each test, are also important to develop as a potential way to reduce the impact of flaky tests and the human effort needed to correct such tests.
+
+\subsection{Research Plan}
+
+Previous work on flaky tests has either focused on a single cause for flaky behavior (usually inter-dependence between tests \cite{LamZE2015}), or used only tests from one large open source project (Apache) \cite{luo2014empirical,palomba2017does}.  Of the latter studies, one \cite{luo2014empirical} only used fixed flaky tests, making it impossible to compare flaky tests to non-flaky tests in a statistical sense, and likely leading to a considerable bias in the analysis of underlying causes for flaky behavior.  The other study \cite{palomba2017does} used a large body of tests, and detected flaky behavior at runtime, but did not produce a comprehensive comparison of tests and projects, instead focusing on the use of test smells.  We propose to produce the first general, systematic examination flaky tests, combining the merits of previous studies and overcoming their limitations.
+
 
 \subsection{Prior Work}
 
-\subsection{Research Plan}
+
+Gao et al. and others have generally considered the question of how to make tests repeatable \cite{Gao:2015:MSU:2818754.2818764}.  
+The most extensive previous study of flaky tests in practice was that of Luo et. al \cite{luo2014empirical}.  Listfield analyzed actual Google tests \cite{listfieldtestanalysis}. Palomba and Zaidman \cite{palomba2017does} investigated the relationship between code smells and flakiness.  There is also considerable work on \cite{LamZE2015} on particular causes for a test being flaky, such as dependence on ordering of tests.  How to handle flaky tests in practice (when they cannot be avoided) is a major issue in Google-scale continuous testing \cite{memon2017taming}.
 
 
 
