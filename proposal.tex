@@ -4,8 +4,18 @@
 \usepackage{url}
 \usepackage{titling}
 \setlength{\droptitle}{-2cm}
-\usepackage{titlesec}
-\titleformat*{\section}{\bfseries\large}
+%\usepackage{titlesec}
+%\titleformat*{\section}{\bfseries\large}
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{
+  \begin{oldthebibliography}{#1}
+    \setlength{\itemsep}{0em}
+    \setlength{\parskip}{0em}
+}
+{
+  \end{oldthebibliography}
+}
 
 \title{Understanding and Mitigating Flaky Tests}
 \author{Alex Groce (agroce@gmail.com)\\Northern Arizona University}
@@ -23,6 +33,8 @@
 
 \subsection{Abstract}
 
+This project proposes to investigate the causes of \emph{flaky tests}, unreliable regression tests that can both pass and fail for the same code under test.  The first phase of the project will gather more extensive, varied, and reliable empirical data on flaky tests, addressing weaknesses of previous limited investigations of flaky tests.  By gathering a large set of tests (both flaky and not flaky) from a large set of projects, flaky and non-flaky tests can be compared, and properties of likely-flaky tests identified.  This analysis will also support the development and evaluation of a novel approach to mitigating flaky tests based on automatically decomposing large, complex tests into sets of simpler, less complex tests.
+
 \subsection{Problem Statement}
 
 In order to help ensure that they are reliable and secure, complex modern software systems usually include a large set of \emph{regression tests}.  A regression test suite is a (usually large) set of tests that is run against a software system every time is modified, to ensure that the modification has not broken the system in some way.
@@ -32,16 +44,16 @@ In practice, the problem of flaky tests is not limited to regression testing.  I
 
 \subsection{Research Plan}
 
-Previous work on flaky tests has either focused on a single cause for flaky behavior (usually inter-dependence between tests \cite{LamZE2015}), or used only tests from one large open source project (Apache) \cite{luo2014empirical,palomba2017does}.  Of the latter studies, one \cite{luo2014empirical} only used fixed flaky tests, making it impossible to compare flaky tests to non-flaky tests in a statistical sense, and likely leading to a considerable bias in the analysis of underlying causes for flaky behavior.  The other study \cite{palomba2017does} used a large body of tests, and detected flaky behavior at runtime, but did not produce a comprehensive comparison of tests and projects, instead focusing on the use of test smells.  We propose to produce the first general, systematic examination flaky tests, combining the merits of previous studies and overcoming their limitations.
+\noindent {\bf Understanding Flaky Tests:} Previous work on flaky tests has either focused on a single cause for flaky behavior (usually inter-dependence between tests \cite{LamZE2015}), or used only tests from one large open source project (Apache) \cite{luo2014empirical,palomba2017does}.  Of the latter studies, one \cite{luo2014empirical} only used fixed flaky tests, making it impossible to compare flaky tests to non-flaky tests in a statistical sense, and likely leading to a considerable bias in the analysis of underlying causes for flaky behavior.  The other study \cite{palomba2017does} used a large body of tests, and detected flaky behavior at runtime, but did not produce a comprehensive comparison of tests and projects, instead focusing on the use of test smells.  We propose to produce the first general, systematic examination flaky tests, combining the merits of previous studies and overcoming their limitations.  First, we will use a much larger body of tests, drawn from multiple large, mature open source projects; additionally we aim to use open-sourced large projects originally developed in an industry or government environment, in case open source development results in different test practices.  Second, by using sampled tests as well as fixes for flaky tests, we can contrast and compare flaky and non-flaky tests as well as (perhaps equally critically) flaky tests that are fixed and those that remain flaky.  Finally, rather than only investigating root causes by manual analysis and examining a limited number of test smells, we will perform a wide variety of statistical comparisons between types of tests (non-flaky, flaky, flaky fixed, flaky not fixed, flaky before fix, flaky after fix) for numerous source code and executable attributes, e.g., source size, entropy, language features used, and so forth.  Rather than beginning with a hypothesis about flaky tests (as in the work on test smells \cite{palomba2017does}) this will allow us to discover surprising correlations with flaky behavior.
+
+\noindent {\bf Mitigating Flaky Tests:}  Google engineer Jeff Listfield examined a large set of flaky tests at Google and discovered that flakiness correlated surprisingly well with sheer size of tests \cite{listfieldtestanalysis}, a finding we will attempt to reproduce over a set of flaky tests drawn from non-Google projects.  The relationship between flaky behavior and test size suggests that reducing the size of tests may be a way to reduce flakyness.  Manually reducing test size is difficult, and prone to mistakes.  We propose to use our generalization of delta-debugging \cite{DD}, \emph{cause reduction} \cite{stvrcausereduce} to automatically produce multiple tests from a single large test, preserving code coverage and mutation detection.  We hypothesize that by reducing instances where a single test has multiple independent events dependent on a single setup event, we can reduce the probability of flaky behavior.  Smaller tests have fewer opportunities for concurrent interaction and resource use dependencies, for example.  As a secondary benefit, we hope that decomposed tests will be easier to understand and use in debugging.  Finally, even when one decomposed test is still flaky, in some cases only one of the tests may run due to a change, reducing the chance of executing a flaky test.
 
 
 \subsection{Prior Work}
 
 
 Gao et al. and others have generally considered the question of how to make tests repeatable \cite{Gao:2015:MSU:2818754.2818764}.  
-The most extensive previous study of flaky tests in practice was that of Luo et. al \cite{luo2014empirical}.  Listfield analyzed actual Google tests \cite{listfieldtestanalysis}. Palomba and Zaidman \cite{palomba2017does} investigated the relationship between code smells and flakiness.  There is also considerable work on \cite{LamZE2015} on particular causes for a test being flaky, such as dependence on ordering of tests.  How to handle flaky tests in practice (when they cannot be avoided) is a major issue in Google-scale continuous testing \cite{memon2017taming}.
-
-
+The most extensive previous study of flaky tests in practice was that of Luo et. al \cite{luo2014empirical}.  Listfield analyzed actual Google tests \cite{listfieldtestanalysis}. Palomba and Zaidman \cite{palomba2017does} investigated the relationship between code smells and flakiness.  There is also considerable work on particular causes for a test being flaky, such as dependence on ordering of tests \cite{LamZE2015}.  How to handle flaky tests in practice (when they cannot be avoided) is a major issue in Google-scale continuous testing \cite{memon2017taming}, and the problem of flaky tests influences the general design of Google test automation.
 
 \bibliographystyle{abbrv}
 \bibliography{proposal}
@@ -51,5 +63,12 @@ The most extensive previous study of flaky tests in practice was that of Luo et.
 All analysis data from this project based on open source projects will be made public, along with analysis scripts, via GitHub or similar open source hosting solution.  Tools for mitigation will also be publically hosted.  Depending on size of artifacts, only pointers to the actual repository artifact snapshots analyzed may be posted, rather than their full contents (since we expect to potentially analyze very large amounts of source code that is already accessible online).
 
 \section{Budget}
+
+The budget of \$Y will support one PhD student for one year, including travel to conferences or other project-related travel (e.g., to Google):
+
+\begin{itemize}
+\item Stipend \$X + Tuition \$Y = Student Support Total: \$Z
+\item Conference travel: \$1500
+\end{itemize}
 
 \end{document}
