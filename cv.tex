@@ -1,4 +1,4 @@
-\documentclass[ComputerScience]{vita}
+\documentclass[ComputerScience,10pt]{vita}
 \usepackage{fullpage}
 \usepackage{times}
 \usepackage{url}
@@ -20,10 +20,10 @@
 \newcategory{Education}
 \newcategory{Professional Activities and Service}
 \newcategory{Books, Edited Volumes}
-\newcategory{Refereed Conference and Workshop Publications}
+\newcategory{Recent Conference Publications}
 %\newcategory{Refereed Conference Tool Publications}
 %\newcategory{Refereed Workshop Publications}
-\newcategory{Refereed Journal Publications}
+\newcategory{Recent Journal Publications}
 \newcategory{Technical Reports}
 \newcategory{Columns, Book Reviews, and Magazine Articles}
 \newcategory{Invited Seminars}
@@ -39,11 +39,9 @@
 %\end{Expected Degrees}
 
 \begin{Education}
-  \item Ph.D., {\bf Computer Science}, Carnegie Mellon University, March 2005\\ Thesis Title:  {\bf Error Explanation and Fault Localization with Distance Metrics}.\\Thesis Committee:  Edmund Clarke (chair), David Garlan, Reid Simmons, and Willem Visser
-
+  \item Ph.D., {\bf Computer Science}, Carnegie Mellon University, March 2005
   \item B.S., {\bf Computer Science}, North Carolina State University, May 1999 (\emph{summa cum laude})
   \item B.S., {\bf Multidisciplinary Studies}, North Carolina State University, May 1999 (\emph{summa cum laude})
-\item  \hspace{0.5in} Minors:  {\bf English Literature} and {\bf Science, Technology, and Society}
 \end{Education}
 
 \begin{Experience}
@@ -51,13 +49,7 @@
   research, development, and analysis of complex software systems.  My
   work focuses on testing, developing, specifying, and understanding
   critical distributed, embedded, aerospace, systems, and security
-  software and software/hardware systems.  I contributed significantly
-  to the implementation and design of verification and analysis tools
-  used internationally for research, industrial application, and
-  teaching, including NASA's Java PathFinder 2, CBMC, MAGIC, SyMP,
-  JPL's LogScope, and the Concurrency Workbench (NC).  More recently I
-  have been developing languages and systems tools for software
-  testing.  I have been PI or co-PI on externally funded grants
+  software and software/hardware systems.  I have been PI or co-PI on externally funded grants
   totalling over \$9.1M (\$1.2M my share), and have authored or
   co-authored more than 60 publications, primarily in ACM, IEEE, and
   top verification and formal methods venues, with over 3,100 citations,
@@ -66,126 +58,46 @@
 
 \item {\bf 1/2017--present $\cdot$ Associate Professor with Tenure, School of Informatics, Computing, and Cyber Systems, Northern Arizona University:} Explored methods for bringing advanced automated testing techniques into development practice, especially for Python and other languages used widely in bioinformatics and other scientific applications.  Continued to advance state-of-the-art in software testing.
 
-  \item {\bf 9/2015--12/2016 $\cdot$ Associate Professor with Tenure, School of Electrical Engineering and Computer Science, Oregon State University:} Continued investigations of core problems in software and software/hardware systems understanding and correctness, including lightweight tools for automated testing and understanding by non-experts.  Began investigations of self-repairing and evolving systems for software longevity.  Co-chaired undergraduate curriculum committee.
+  \item {\bf 9/2015--12/2016 $\cdot$ Associate Professor with Tenure, School of Electrical Engineering and Computer Science, Oregon State University}
 
   \item {\bf 6/2009--9/2015 $\cdot$ Assistant Professor, School of
     Electrical Engineering and Computer Science, Oregon State
-    University:} Initiated investigation of methods and metrics for
-    end-user testing of machine learning systems.  Continued work
-    on unified approaches to testing, with new techniques applied to finding flaws in widely used production-quality C compilers, JavaScript engines, and embedded file systems.  Mentored graduate
-    students, taught graduate and undergraduate classes on software
-    engineering and verification, and served on graduate and undergraduate curriculum committees and the hiring committee.
-
-  \item {\bf 2/2011--5/2015 $\cdot$ Consultant, Aries Design Automation, LLC:} Provided expertise on verification, testing, and analysis for SBIR and other projects and proposals.  Main consultant on NIST SBIR project ``Using Automated Abstractions to Classify System States for Software Health Monitoring,'' aimed at improving systems engineering of health monitoring systems via code analysis and machine learning.
-
-  \item {\bf 4/2008--6/2008, 4/2009-6/2009 $\cdot$ Lecturer in
-    Computer Science, part-time, California Institute of Technology:}
-    Taught CS 119, Reliable Software: Testing and Monitoring.  Used
-    research and JPL flight system experiences to introduce
-    state-of-the-art techniques and practical methods for testing and
-    verification to students, with a focus on automated approaches to
-    executing software in order to find faults.
+    University}
 
   \item {\bf 4/2005--6/2009 $\cdot$ Laboratory for Reliable Software,
     Jet Propulsion Laboratory:} Led test automation development and
     design, Mars Science Laboratory (Curiosity rover) Flight Software
-    Internal Test Team.  Introduced new techniques for exploiting
-    traces in static analysis of programs, integrated model checking
-    and dynamic analysis, developed a successful random testing
-    approach for mission file systems, and contributed to modeling and
-    verification of Dawn mission launch sequence and fault protection.
-    Led file system acceptance testing for a NASA Discovery class
-    mission; led model checking and random testing efforts for Mars
-    Science Laboratory (Curiosity) file storage modules; contributed
-    to design for file systems used to store images, science products,
-    and telemetry during spaceflight missions.  Served on design and
-    code review panels for flight software systems and hardware
-    drivers.  Worked with systems engineers to develop methods for
-    specifying, generating, and understanding logs of complex
-    spacecraft software and hardware activity.
-
-  \item {\bf 8/1999--3/2005 $\cdot$ Doctoral student, Carnegie Mellon
-    University:} Invented methods for error explanation and fault
-    isolation using distance metrics, applied to aerospace, security, and
-    micro-kernel code.  Invented and implemented novel approaches for
-    counterexample guided abstraction refinement and heuristic search
-    guided model checking.  Implemented Athena proof system for
-    security protocols, devised language and type system for encoding
-    security protocols in the SyMP tool.  Enriched teaching by
-    incorporating research ideas into instruction, assignments, and
-    evaluation in undergraduate classes.
-
-  \item {\bf 5/2002--8/2002 $\cdot$  Summer Student Research Program, RIACS (Research Institute for Advanced Computer Science)/NASA Ames Research Center, Robust Software Engineering group:}  Invented and implemented methods for error explanation, using model checking counterexamples to provide automatic feedback about the causes and location of errors in complex systems.
-
-  \item {\bf 5/2001--8/2001 $\cdot$  Summer Student Research Program, RIACS/NASA Ames Research Center, Robust Software Engineering group:}  Invented and experimented with novel (and successful) heuristics for model checking Java programs; implemented heuristic search in the Java PathFinder 2 model checker.
-
-  \item {\bf 5/2000--8/2000 $\cdot$  Research intern, Bell Laboratories (Murray Hill):}  Implemented black box checking algorithm (model checking for an unknown model using finite-state machine learning algorithms) and investigated theoretical aspects and applications of the algorithm to software model checking.
-
-  \item {\bf 5/1999--8/1999 $\cdot$ Summer research assistant, SUNY Stony Brook:}  Continued work from the previous summer.
-
-  \item {\bf 5/1998--8/1998 $\cdot$ Summer research assistant, North Carolina State University:}   Implemented a model checker based on Alternating B\"uchi Tableau Automata and developed logical optimizations for ABTAs.
-
+    Internal Test Team.  Researched novel model checking and random
+    testing methods, applied to flagship NASA missions.
 \end{Experience}
-
-\begin{Research Interests}
-\item \emph{Designing}, \emph{specifying}, \emph{coding},
-  \emph{testing}, \emph{verifying}, \emph{understanding}, and
-  \emph{debugging} complex computer systems.   My research has combined testing, static analysis, formal methods, programming
-  languages, and machine learning approaches as required.  My current focus is on techniques for testing critical systems including JavaScript engines and other compilers, web browsers, file systems, and more generally, all layers of the Android environment, from system libraries to user applications.
-  In the spirit of Henry Petroski's proposal that progress in
-  engineering arises from understanding failures, I believe that a
-  deeper understanding of {\bf bugs} is essential to better
-  \emph{software and systems engineering} and better engineering
-  education.
-\begin{Topics}
-\item {\bf Software testing:} I am exploring the effectiveness and relative ease of (randomized) testing, and the relationship between testing, runtime verification or dynamic analysis, and model checking using unsound abstractions --- including shared models and frameworks for testing and model checking and strategies based on constraint-solving and machine learning.  I am aiding core developers of the Linux kernel to use mutation analysis to improve kernel systems testing methods, and to verify critical algorithms. 
-\item {\bf Software model checking:}  I continue to investigate the use of SAT and SMT solvers for bounded model checking (CBMC), predicate abstraction-based approaches (MAGIC, SATABS), and explicit-state exploration with SPIN and Java PathFinder. 
-%\item {\bf Error explanation:}   I developed automatic tools based on model checking for \emph{explaining} and \emph{localizing} errors in systems.  Understanding and correcting errors can be as difficult and costly as implementation or design, and better methods and algorithms are critical to improving systems reliability.
-\item{\bf Understanding complex program executions:} I am working with scientists at the United States Forest Service to analyze complex models used to predict climate change impacts, with techniques that should also apply to analyzing model checking and test system executions.
-\item{\bf Educational use of analysis tools:}  I am interested in incorporating mature, robust ``research'' tools for system design, debugging, and verification (model checking, random testing, static analysis, delta-debugging, etc.) into engineering education:  I believe such tools not only make for better engineering practice, but make the learning experience more rewarding and interesting to students.
-\comment{
-\item {\bf Coverage for model checking:} I am interested in coverage metrics and certification methods for model checkers.  Traditional and cutting-edge measures from the world of testing can be applied to model checking runs, and proof-based techniques for certification have recently appeared.  However, the general problem remains:  after verification, how much confidence should we have in in the correctness of a program?}
-\end{Topics}
-\end{Research Interests}
 
 
 \begin{Honors}
 \item ACM 2017 {\bf Senior Member}
 \item ACM/IEEE International Conference on Software Engineering 2016 {\bf Distinguished Poster Award}
   \item IEEE International Conference on Software Testing, Verification and Validation (ICST) 2014 {\bf Best Paper Award}
-  \item {\bf NASA Software of the Year Award} for Mars Science Laboratory Flight Software, 2013 (MSL Flight Software team)
   \item {\bf NASA Space Act Award} for LogScope Software, 2011
   \item National Science Foundation Faculty {\bf Early Career Development (CAREER) Program Award}, 2011
   \item {\bf JPL Mariner Award} for LogScope Testing Software, 2009
   \item {\bf JPL Spot Award} (for Multi Mission System Architecture Platform
   (MSAP) File System Testing), 2006 \item ACM/IEEE International Conference on Software Engineering 2003 {\bf ACM SIGSOFT
-  Distinguished Paper Award} \item {\bf NASA ``Engineering Innovation''
-  Turning Goals Into Reality (TGIR) Award} 2003 (Java PathFinder team)
-  \item {\bf National Science Foundation Graduate Fellowship} \item {\bf NCSU
-  Class of 1999 College of Humanities and Social Sciences Scholar}
-  (valedictorian for CHASS) \item {\bf Phi Beta Kappa}
+  Distinguished Paper Award} 
 \end{Honors}
 
 
 \begin{Funding}
-\item ``Interfaces, Models, and Monitoring for Resource-aware Transformations that Augment the Lifecycle of Systems (IMMoRTALS)'', PIs: Matt Gillen (BBN), Doug Schmidt (Vanderbilt), Eric Walkingshaw (Oregon State University), Heng Yin (Syracuse), Co-PIs: Alex Groce, Jules White (Vanderbilt), Jacob Staples (Securboration), DARPA BRASS (Building Resource Adaptive Software Systems), BAA-15-36, \$464,625, \$1.6M total Oregon State University budget, (total project budget \$7.7M), October 2015-September 2019.
-\item ``Advanced Tools for Effective Automated Test Generation'', PIs: Miroslav Velev (Aries Design Automation, LLC), Alex Groce, \emph{NASA Small Business Technology Transfer Phase I} T11.01-9878, \$52,037 (total budget \$125,000), July 2015-2016.
-\item ``Explorations of Testing in the Cloud'', PI: Alex Groce, Amazon Web Services in Education Grants, \$10,000, January 2015-2017.
-\item ``II-EN: Software Tools for Monte-Carlo Optimization'', PI: Alan Fern, Co-PIs: Alex Groce, Sinisa Todorovic, Prasad Tadepalli, Thomas Dietterich, \emph{National Science Foundation} CNS-1406049, \$442,366, October 2014-September 2017 (infrastructure development for cloud-based optimization tools with ML, graphics, and testing applications; includes \$12,000 dedicated compute time for software testing research).
-\item ``Diversity and Feedback in Random Testing for Systems Software'', PIs: Alex Groce, John Regehr (University of Utah), \emph{National Science Foundation} CCF-1217824, \$242,244 (total budget \$491,280), September 2012-2015.
-\item ``CAREER: Integrating Automated Software Testing Methods'', PI: Alex Groce, \emph{National Science Foundation} CCF-1054876, \$400,000, September 2011-2016.
+\item ``Interfaces, Models, and Monitoring for Resource-aware
+  Transformations that Augment the Lifecycle of Systems (IMMoRTALS)'',
+  Co-PI, DARPA BRASS (Building Resource Adaptive Software Systems), BAA-15-36, \$464,625, \$1.6M total Oregon State University budget, (total project budget \$7.7M), October 2015-September 2019.
+\item ``Advanced Tools for Effective Automated Test Generation'', PI \emph{NASA Small Business Technology Transfer Phase I} T11.01-9878, \$52,037 (total budget \$125,000), July 2015-2016.
+\item ``Explorations of Testing in the Cloud'', PI,, Amazon Web Services in Education Grants, \$10,000, January 2015-2017.
+\item ``II-EN: Software Tools for Monte-Carlo Optimization'', Co-PI, \emph{National Science Foundation} CNS-1406049, \$442,366, October 2014-September 2017 (infrastructure development for cloud-based optimization tools with ML, graphics, and testing applications; includes \$12,000 dedicated compute time for software testing research).
+\item ``Diversity and Feedback in Random Testing for Systems Software'', PI\emph{National Science Foundation} CCF-1217824, \$242,244 (total budget \$491,280), September 2012-2015.
+\item ``CAREER: Integrating Automated Software Testing Methods'', PI \emph{National Science Foundation} CCF-1054876, \$400,000, September 2011-2016.
 \end{Funding}
 
-\begin{Books, Edited Volumes}
 
-\item
-{\bf Alex Groce} and Madanlal Musuvathi (eds).
-\newblock Model Checking Software: Proceedings of the 18th International SPIN Workshop.
-\newblock Springer-Verlag, LNCS 6823, 2011. 
-
-\end{Books, Edited Volumes}
-
-\begin{Refereed Journal Publications}
+\begin{Recent Journal Publications}
 \item
 Rahul Gopinath, Iftekhar Ahmed, Mohammad Amin Alipour, Carlos Jensen, and {\bf Alex Groce}.
 \newblock Mutation Reduction Strategies Considered Harmful.
@@ -266,9 +178,9 @@ Sagar Chaki, Edmund Clarke, {\bf Alex Groce}, Somesh Jha, and Helmut Veith.
 \newblock Modular Verification of Software Components in C.
 \newblock \emph{IEEE Transactions on Software Engineering}, 30(6):388-402, June 2004.
 
-\end{Refereed Journal Publications}
+\end{Recent Journal Publications}
 
-\begin{Refereed Conference and Workshop Publications}
+\begin{Recent Conference Publications}
 \item Arpit Christi, {\bf Alex Groce}, and Rahul Gopinath.
 \newblock Resource Adaptation via Test-Based Software Minimization.
 \newblock \emph{IEEE International Conference on Self-Adaptive and Self-Organizing Systems}, accepted for publication, Tucson, Arizona, September 2017 (acceptance rate 21\%).
@@ -553,7 +465,7 @@ Sagar Chaki, Edmund Clarke, {\bf Alex Groce}, Somesh Jha, and Helmut Veith.
 Girish Bhat, Rance Cleaveland, and {\bf Alex Groce}.
 \newblock Efficient Model Checking Via B\"uchi Tableau Automata.
 \newblock \emph{International Conference on Computer Aided Verification}, pages 38-52, Paris, France, July 2001 (acceptance rate 29\%).
-\end{Refereed Conference and Workshop Publications}
+\end{Recent Conference Publications}
 
 
 
